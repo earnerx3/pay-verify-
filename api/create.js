@@ -1,11 +1,12 @@
 export default async function handler(req, res) {
-    if (req.method !== 'POST') return res.status(405).json({ error: 'Only POST request allowed' });
+    if (req.method !== 'POST') return res.status(405).json({ error: 'Only POST allowed' });
 
     try {
         const response = await fetch('https://pay.bdusp.com/api/payment/create', {
             method: 'POST',
             headers: { 
-                'Content-Type': 'application/json' 
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer 7ScZpy6qgmrfgG9JbQb8yOqSj2PhQPCKX8q2Lbfb8ZQYrMcHCN' // আপনার Key টি এখানে দিলাম
             },
             body: JSON.stringify(req.body) 
         });
